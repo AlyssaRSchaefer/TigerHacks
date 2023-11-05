@@ -1,5 +1,9 @@
+//code credit: many of the map functions, like for the DistanceMatrix, initialize map, code address, etc. were borrowed
+//from the google maps api docs examples. however, most if not all were also altered to fit the specfic needs of the program
+
 
 //this links the api in the js bc the normal way was not working, so we had to do it asyncronously
+//code credit: stack overflow
 window.addEventListener('load',function(){
     var script = document.createElement('script');
     script.type = 'text/javascript';
@@ -148,6 +152,8 @@ async function initMap() {
         {location:{lat:42.4886, lng: -91.0904}, content: '<h3>Field of Dreams</h3>', id: 21, distance: 0, movie: 'Field of Dreams', travelTime: "1 hour"}
     ]
     
+    //code credit: got the basis of how to add markers from this youtube: https://www.youtube.com/watch?v=uPhWSyRqQDA
+    //fills the markers onto the map from the data in the marker array
     function addMarker(property){
         var marker = new google.maps.Marker({
             position:property.location,
@@ -210,6 +216,8 @@ async function initMap() {
 
 }
 
+//the user can input an address from the home page and then it is stored as a query paramter
+//this function accesses that address if it exists for use in the map 
 function searchQueryFromHome(address, geocoder){
     const urlParams = new URLSearchParams(window.location.search);
     const location = urlParams.get('location');

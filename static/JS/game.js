@@ -46,6 +46,7 @@ let movie=MovieArray[0];
 document.getElementById("quote").innerHTML = movie.quote;
 
 
+//code credit: google maps api docs example
 function initialize() {
 
   panorama = new google.maps.StreetViewPanorama(
